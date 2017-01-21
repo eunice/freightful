@@ -11,7 +11,7 @@ router.post('/authenticate', function *(next) {
   var user = yield User.where('email', email).fetch();
   if (user) {
     var u = user.toJSON();
-    var isMatch = bcrypt.compareSync(password, u.password);
+    var isMatch = bcrypt.compareSync(password, u.password_hash);
     if (isMatch) {
       // Login logic returning a token or user in response
       var token = jwt.sign({iss: 'api.freightful.com', id: u.id, email: u.email, message: 'This is the coolest API on earth!'}, config.jwtSecret);

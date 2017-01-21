@@ -1,6 +1,8 @@
 const bcrypt = require('bcrypt');
 const router = require('koa-router')();
+const config = require('../../config');
 const User = require('./model');
+const jwt = require('jsonwebtoken');
 
 router.get('/users', function *(next) {
   var users = yield User.collection().fetch();
@@ -15,7 +17,7 @@ router.post('/users', function *(next) {
   if (password == body.password_confirmation) {
     var passwordHash = bcrypt.hashSync(password, salt);
   } else {
-    this.throw(401)
+    this.throw(401);
   }
 
   var user = User
@@ -23,10 +25,10 @@ router.post('/users', function *(next) {
       email: email,
       password_hash: passwordHash
     })
-    .save()
+    .save();
 
   if (yield user) {
-    this.body = user;
+    this.body = { user: user };
   } else {
     this.throw(422);
   }

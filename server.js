@@ -54,7 +54,7 @@ app
   .use(router.allowedMethods());
 
 app.use(function *(){
-    this.body = this.request.body;
+    this.body = this.state;
 });
 
 app.listen(3000)

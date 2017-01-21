@@ -6,7 +6,7 @@ var config = require('./config');
 var knex = require('knex')({
       client: 'pg',
       connection: {
-              database : 'frightful_dev',
+              database : 'freightful_dev',
               charset  : 'utf8'
             }
 });
