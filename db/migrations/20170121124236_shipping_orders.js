@@ -1,10 +1,9 @@
 
 exports.up = function(knex, Promise) {
-    return knex.schema.createTabe('shipping_orders', function(table) {
+    return knex.schema.createTable('shipping_orders', function(table) {
         table.increments('id').primary();
         table.string('freight_kind');
         table.string('commodity_id');
-        table.string('weight');
         table.string('container');
         table.string('category');
         table.integer('consignee_id');

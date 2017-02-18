@@ -1,6 +1,5 @@
-
 exports.up = function(knex, Promise) {
-    return knex.schema.createTable('commodities', function(){
+    return knex.schema.createTable('commodities', function(table){
         table.increments('id').primary();
         table.string('code').notNullable().unique();
         table.string('category').notNullable().unique();

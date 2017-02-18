@@ -4,6 +4,7 @@
   "description": "",
   "main": "config.js",
   "dependencies": {
+    "algoliasearch": "^3.20.4",
     "bcrypt": "^1.0.2",
     "bcryptjs": "^2.4.0",
     "bookshelf": "^0.10.2",
@@ -20,7 +21,9 @@
     "koa-router": "^5.4.0",
     "pg": "^6.1.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "xlsx": "^0.8.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
